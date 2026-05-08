@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-blue-600">
-          MOONLIGHT <span className="text-gray-800">SHOP</span>
+        MOONLIGHT <span className="text-gray-800">SHOP</span>
         </Link>
         <div className="flex items-center gap-8">
           <Link to="/" className="text-gray-600 hover:text-blue-600">Home</Link>
