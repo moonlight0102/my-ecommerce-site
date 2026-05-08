@@ -43,6 +43,7 @@ const Home = () => {
             alignItems: 'center'
           }}>
             
+
             <div style={{ width: '100%', height: '180px', display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
               <img 
                 src={product.image} 
