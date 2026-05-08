@@ -1,25 +1,80 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useCart } from '../context/CartContext'; 
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
-  const { cart } = useCart(); 
+  const { cart } = useCart();
 
   return (
-    <nav className="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-blue-600">
-        MOONLIGHT <span className="text-gray-800">SHOP</span>
+    <nav style={{ 
+      backgroundColor: '#2563eb', 
+      padding: '10px 40px', 
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'center',
+      color: 'white',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+    }}>
+      <Link to="/" style={{ 
+        color: 'white', 
+        textDecoration: 'none', 
+        fontSize: '24px', 
+        fontWeight: 'bold',
+        letterSpacing: '1px'
+      }}>
+        MOONLIGHT SHOP
+      </Link>
+
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '30px' 
+      }}>
+        <Link to="/" style={{ 
+          color: 'white', 
+          textDecoration: 'none', 
+          fontWeight: '500',
+          fontSize: '16px'
+        }}>
+          Home
         </Link>
-        <div className="flex items-center gap-8">
-          <Link to="/" className="text-gray-600 hover:text-blue-600">Home</Link>
-          <Link to="/cart" className="relative">
-            <AiOutlineShoppingCart className="text-2xl" />
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-              {cart.length}
-            </span>
-          </Link>
-        </div>
+        
+        <Link to="/cart" style={{ 
+          color: 'white', 
+          textDecoration: 'none', 
+          fontWeight: '500', 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '8px' 
+        }}>
+          <span style={{ fontSize: '20px' }}>🛒</span>
+          <span style={{ 
+            backgroundColor: 'white', 
+            color: '#2563eb', 
+            borderRadius: '50%', 
+            padding: '2px 8px', 
+            fontSize: '12px',
+            fontWeight: 'bold'
+          }}>
+            {cart.length}
+          </span>
+        </Link>
+
+        <Link to="/add-product" style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '8px',
+          backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+          padding: '8px 18px', 
+          borderRadius: '25px',
+          color: 'white',
+          textDecoration: 'none',
+          fontSize: '14px',
+          fontWeight: '600',
+          transition: '0.3s'
+        }}>
+          <span>👤</span> Admin
+        </Link>
       </div>
     </nav>
   );

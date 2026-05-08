@@ -1,9 +1,11 @@
+import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import AddProduct from './pages/AddProduct';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/add-product" element={<AddProduct />} />
           </Routes>
         </div>
       </Router>
@@ -21,4 +24,4 @@ function App() {
   );
 }
 
-export default App; // BU QATORSIZ LOYIHA ISHLAMAYDI!
+export default App; 
