@@ -1,43 +1,80 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { addToCart } = useCart(); 
+  const { addToCart } = useCart();
 
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products')
-      .then((response) => {
-        setProducts(response.data);
+      .then(res => {
+        setProducts(res.data);
         setLoading(false);
-      });
+      })
+      .catch(err => console.log(err));
   }, []);
 
-  if (loading) return <div className="text-center mt-20 text-2xl">Loading products...</div>;
+  if (loading) return <div style={{ textAlign: 'center', padding: '50px' }}>Loading products...</div>;
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-10 text-gray-800">Our Exclusive Collection</h1>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+      <h1 style={{ textAlign: 'center', fontSize: '32px', marginBottom: '40px', fontFamily: 'sans-serif' }}>
+        Our Collection
+      </h1>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div style={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: '20px', 
+        justifyContent: 'center' 
+      }}>
         {products.map((product) => (
-          <div key={product.id} className="bg-white border rounded-xl p-4 shadow-sm flex flex-col justify-between hover:shadow-lg transition">
-            <div>
-              <img src={product.image} alt={product.title} className="h-48 w-full object-contain mb-4" />
-              <h2 className="text-lg font-semibold text-gray-700 line-clamp-2">{product.title}</h2>
-              <p className="text-gray-500 text-sm mt-2">{product.category}</p>
-            </div>
+          <div key={product.id} style={{ 
+            width: '250px', 
+            border: '1px solid #eee', 
+            borderRadius: '12px', 
+            padding: '15px', 
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            backgroundColor: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
             
-            <div className="mt-4">
-              <p className="text-xl font-bold text-blue-600">${product.price}</p>
-              <button 
-                onClick={() => addToCart(product)}
-                className="w-full bg-blue-600 text-white py-2 mt-4 rounded-lg hover:bg-blue-700 active:scale-95 transition">
-                Add to Cart
-              </button>
+            <div style={{ width: '100%', height: '180px', display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
+              <img 
+                src={product.image} 
+                alt={product.title} 
+                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} 
+              />
             </div>
+
+            <h2 style={{ fontSize: '16px', height: '40px', overflow: 'hidden', textAlign: 'center', marginBottom: '10px' }}>
+              {product.title}
+            </h2>
+            
+            <p style={{ fontSize: '20px', fontWeight: 'bold', color: '#2563eb' }}>
+              ${product.price}
+            </p>
+
+            <button 
+              onClick={() => addToCart(product)}
+              style={{ 
+                width: '100%',
+                backgroundColor: '#2563eb', 
+                color: 'white', 
+                padding: '10px', 
+                border: 'none', 
+                borderRadius: '8px', 
+                cursor: 'pointer',
+                marginTop: '10px',
+                fontWeight: 'bold'
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>
