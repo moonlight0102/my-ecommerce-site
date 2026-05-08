@@ -1,16 +1,36 @@
-# React + Vite
+# 🛒 Moonlight E-Commerce Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully functional E-Commerce web application built using **React.js**, **Vite**, and **Tailwind CSS**. This project demonstrates the integration of REST APIs, state management using Context API, and a clean, responsive user interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* **Dynamic Product Listing:** Fetches real-time product data from the [Fake Store API](https://fakestoreapi.com/).
+* **Live Search Functionality:** Real-time filtering of products based on user input.
+* **Stateful Shopping Cart:** Users can add/remove items and see the total count and price updated instantly across the site.
+* **Admin Panel UI:** A dedicated section to simulate adding new products to the inventory.
+* **Responsive Design:** Fully optimized for desktops, tablets, and mobile devices.
+* **Client-Side Routing:** Seamless navigation between Home, Cart, and Admin pages using `react-router-dom`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend Library:** React.js (Hooks, Context API)
+* **Build Tool:** Vite (for ultra-fast development)
+* **Styling:** Tailwind CSS & Custom CSS Modules
+* **HTTP Client:** Axios (for API requests)
+* **Routing:** React Router v6
+
+---
+
+## 📦 Project Structure
+
+```text
+src/
+ ┣ components/     # Reusable UI components (Navbar, etc.)
+ ┣ context/        # CartContext for global state management
+ ┣ pages/          # Home, Cart, and AddProduct page components
+ ┣ App.jsx         # Main application logic and routing
+ ┗ main.jsx        # Entry point
